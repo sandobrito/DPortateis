@@ -1,3 +1,4 @@
+import { Disciplina } from './../../models/disciplina';
 import { FirebaseListObservable } from 'angularfire2/database';
 import { DisciplinaServiceProvider } from './../../providers/disciplina-service/disciplina-service';
 import { Component } from '@angular/core';
@@ -20,23 +21,22 @@ export class CadastroDisciplinaPage {
 
   items: FirebaseListObservable<any[]>;
 
-  disciplinaName : string;
-  disciplinaKey : string;
+  disciplina = {} as Disciplina;
   constructor(public navCtrl: NavController, public navParams: NavParams, private disciplinaService: DisciplinaServiceProvider) {
     
-    this.disciplinaName = '';
-    this.disciplinaKey = '';
+    this.disciplina.nome = '';
+    this.disciplina.matricula = '';
 
     if(this.navParams.data.name){
-      this.disciplinaName = this.navParams.data.disciplina.name;
+      this.disciplina.nome = this.navParams.data.disciplina.name;
 
-      this.disciplinaName = this.navParams.data.disciplina.$key;
+      this.disciplina.matricula = this.navParams.data.disciplina.matricula;
     }
     this.items = this.disciplinaService.getAll();
 
   }
   salvar(){
-      this.disciplinaService.save(this.disciplinaName, this.disciplinaKey);
+      this.disciplinaService.saveDisciplina(this.disciplina.nome, this.disciplina.matricula);
       this.navCtrl.pop();
   }
 

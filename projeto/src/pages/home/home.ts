@@ -1,3 +1,4 @@
+import { CadastroQuestoesPage } from './../cadastro-questoes/cadastro-questoes';
 import { ListaDisciplinaPage } from './../lista-disciplina/lista-disciplina';
 import { DisciplinaServiceProvider } from './../../providers/disciplina-service/disciplina-service';
 import { CadastroDisciplinaPage } from './../cadastro-disciplina/cadastro-disciplina';
@@ -43,6 +44,9 @@ export class HomePage {
   }
   goToListaDisciplinas(){
     this.navCtrl.push(ListaDisciplinaPage);
+  }
+  goToCadastroQuestoes(){
+    this.navCtrl.push(CadastroQuestoesPage);
   }
 
   

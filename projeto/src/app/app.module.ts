@@ -1,3 +1,4 @@
+import { CadastroQuestoesPage } from './../pages/cadastro-questoes/cadastro-questoes';
 import { ListaDisciplinaPage } from './../pages/lista-disciplina/lista-disciplina';
 import { CadastroDisciplinaPage } from './../pages/cadastro-disciplina/cadastro-disciplina';
 import { HomePage } from './../pages/home/home';
@@ -33,7 +34,8 @@ export const firebaseConfig = {
     LoginPage,
     HomePage,
     CadastroDisciplinaPage,
-    ListaDisciplinaPage
+    ListaDisciplinaPage,
+    CadastroQuestoesPage
     
   ],
   imports: [
@@ -52,7 +54,8 @@ export const firebaseConfig = {
     LoginPage,
     HomePage,
     CadastroDisciplinaPage,
-    ListaDisciplinaPage
+    ListaDisciplinaPage,
+    CadastroQuestoesPage
   ],
   providers: [
     StatusBar,

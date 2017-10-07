@@ -1,0 +1,47 @@
+<!--
+  Generated template for the CadastroQuestoesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Cadastro de Questões</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item>
+    <ion-label stacked>Matricula</ion-label>
+    <ion-input type="text" required [(ngModel)]="disciplina.matricula"></ion-input>
+  </ion-item>>
+  <ion-item>
+    <ion-label stacked>Questao 1</ion-label>
+    <ion-input type="text"  [(ngModel)]="disciplina.questoes"></ion-input>
+  </ion-item>>
+  <ion-item>
+    <ion-label stacked>Questao 2</ion-label>
+    <ion-input type="text"  [(ngModel)]="disciplina.questoes"></ion-input>
+  </ion-item>>
+  <ion-item>
+    <ion-label stacked>Questao 3</ion-label>
+    <ion-input type="text" [(ngModel)]="disciplina.questoes"></ion-input>
+  </ion-item>>
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of items | async">
+      <ion-item>
+        <ion-avatar item-start>
+          <img src="{{ item.url }}" />
+        </ion-avatar>
+        {{ disciplina.questoes }}
+      </ion-item>
+      
+    </ion-item-sliding>
+  </ion-list>
+  <div padding>
+    <button ion-button block color="primary" (click)="salvar()">Salvar</button>
+  </div>
+</ion-content>

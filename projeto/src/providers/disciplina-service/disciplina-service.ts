@@ -17,7 +17,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class DisciplinaServiceProvider {
   items : FirebaseListObservable<any[]>;
-
+  
   constructor(private db: AngularFireDatabase, private angularFireAuth: AngularFireAuth) {
     angularFireAuth.authState.subscribe(user => {
       var path = '/disciplinas/' + user.uid;
@@ -38,6 +38,23 @@ export class DisciplinaServiceProvider {
   public remove(key: string){
     return this.items.remove(key);
   }
+
+
+  public saveDisciplina(name: string , matricula: string){
+    if(matricula){
+      return this.items.update(matricula, {name: name})
+    }else{
+      return this.items.push({name: name});
+    }
+  }
+  public saveQuestoes(name: string , matricula: string){
+    if(matricula){
+      return this.items.update(matricula, {name: name})
+    }else{
+      return this.items.push({name: name});
+    }
+  }
+
   
 
 }
