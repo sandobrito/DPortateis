@@ -1,7 +1,8 @@
-import { DisciplinaServiceProvider } from './../../providers/disciplina-service/disciplina-service';
+import { Disciplina } from './../../models/disciplina';
+
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { FirebaseListObservable } from 'angularfire2/database';
+import { FirebaseListObservable, AngularFireDatabase } from 'angularfire2/database';
 
 /**
  * Generated class for the ListaDisciplinaPage page.
@@ -18,10 +19,12 @@ import { FirebaseListObservable } from 'angularfire2/database';
 export class ListaDisciplinaPage {
 
   items: FirebaseListObservable<any[]>;
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, private disciplinaService: DisciplinaServiceProvider) {
-    this.items = this.disciplinaService.getAll();
+  disciplina = {} as Disciplina;
+  
+  constructor(public navCtrl: NavController, public navParams: NavParams, private db: AngularFireDatabase) {
+    this.items = db.list('/disciplinas');
   }
+  
 
   
 }

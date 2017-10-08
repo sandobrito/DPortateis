@@ -40,20 +40,8 @@ export class DisciplinaServiceProvider {
   }
 
 
-  public saveDisciplina(name: string , matricula: string){
-    if(matricula){
-      return this.items.update(matricula, {name: name})
-    }else{
-      return this.items.push({name: name});
-    }
-  }
-  public saveQuestoes(name: string , matricula: string){
-    if(matricula){
-      return this.items.update(matricula, {name: name})
-    }else{
-      return this.items.push({name: name});
-    }
-  }
+  
+  
 
   
 

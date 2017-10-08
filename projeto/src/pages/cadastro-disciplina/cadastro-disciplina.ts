@@ -1,5 +1,5 @@
 import { Disciplina } from './../../models/disciplina';
-import { FirebaseListObservable } from 'angularfire2/database';
+import { FirebaseListObservable, AngularFireDatabase } from 'angularfire2/database';
 import { DisciplinaServiceProvider } from './../../providers/disciplina-service/disciplina-service';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
@@ -13,6 +13,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
  */
 
 @IonicPage()
+
 @Component({
   selector: 'page-cadastro-disciplina',
   templateUrl: 'cadastro-disciplina.html',
@@ -20,27 +21,24 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class CadastroDisciplinaPage {
 
   items: FirebaseListObservable<any[]>;
-
+  
   disciplina = {} as Disciplina;
-  constructor(public navCtrl: NavController, public navParams: NavParams, private disciplinaService: DisciplinaServiceProvider) {
+  
+  constructor(public navCtrl: NavController,  private disciplinaService: DisciplinaServiceProvider, db: AngularFireDatabase) {
+    this.items = db.list('/disciplinas');
     
-    this.disciplina.nome = '';
-    this.disciplina.matricula = '';
-
-    if(this.navParams.data.name){
-      this.disciplina.nome = this.navParams.data.disciplina.name;
-
-      this.disciplina.matricula = this.navParams.data.disciplina.matricula;
+    
     }
-    this.items = this.disciplinaService.getAll();
+    salvar(){
+      this.items.push(this.disciplina);
+      
+    }
+    
 
-  }
-  salvar(){
-      this.disciplinaService.saveDisciplina(this.disciplina.nome, this.disciplina.matricula);
-      this.navCtrl.pop();
-  }
+}
+  
 
 
   
 
-}
+

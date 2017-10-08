@@ -1,5 +1,5 @@
 export interface Disciplina{
-    nome : string;
-    matricula : string;
-    questoes : string ;
+    id: string;
+    nome: string;
+    questao: string;  
 }
