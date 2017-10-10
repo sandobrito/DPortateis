@@ -19,15 +19,22 @@
             <ion-label floating>Nome da Disciplina</ion-label>
             <ion-input type="text" requerid [(ngModel)]="disciplina.nome"></ion-input>
          </ion-item>
+         
          <ion-item>
-            <ion-label floating>Matricula da Disciplina</ion-label>
-            <ion-input type="text" requerid [(ngModel)]="disciplina.keyReference"></ion-input>
+            <ion-label floating>Questao</ion-label>
+            <ion-input type="text" requerid [(ngModel)]="disciplina.questao"></ion-input>
+         </ion-item>
+         
+         <ion-item>
+            <ion-label floating>Nome do Aluno</ion-label>
+            <ion-input type="text" requerid [(ngModel)]="disciplina.aluno"></ion-input>
          </ion-item>
          
        
       </ion-list>
       <div padding>
           <button ion-button color="primary" (click)="salvar()">Cadastrar</button>
+          
       </div>
     
     </ion-content>

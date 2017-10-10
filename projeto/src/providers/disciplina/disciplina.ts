@@ -1,5 +1,9 @@
+
+import { Disciplina } from './../../models/disciplina';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { RegistroProvider } from './../registro/registro';
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+
 import 'rxjs/add/operator/map';
 
 /*
@@ -10,9 +14,23 @@ import 'rxjs/add/operator/map';
 */
 @Injectable()
 export class DisciplinaProvider {
-
-  constructor(public http: Http) {
-    console.log('Hello DisciplinaProvider Provider');
+  items: FirebaseListObservable<any[]>;
+  disciplina: Disciplina;
+  constructor(
+              public registroProvider:RegistroProvider,
+              public db: AngularFireDatabase,
+            ) {
+               {
+                var path = '/disciplina/';
+                this.items = db.list(path);
+              };
+    
   }
-
+  getAll(){
+    return this.items;
+  }
+  
+  
+  
+  
 }

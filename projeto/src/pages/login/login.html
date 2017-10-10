@@ -1,14 +1,14 @@
 <ion-content padding>
   <ion-card>
-    <ion-card-header>
+    <ion-card-header color="black">
       Login
     </ion-card-header>
-    <ion-card-content>
-      <ion-grid>
+    <ion-card-content >
+      <ion-grid >
         <ion-row>
           <ion-col>
             <ion-item>
-              <ion-label floating>
+              <ion-label floating color="primary">
                 Email
               </ion-label>
               <ion-input type="text" [(ngModel)]="usuario.email"></ion-input>
@@ -19,7 +19,7 @@
         <ion-row>
           <ion-col>
             <ion-item>
-              <ion-label floating>
+              <ion-label floating color="primary">
                 Senha
               </ion-label>
               <ion-input type="password" [(ngModel)]="usuario.senha"></ion-input>
@@ -29,7 +29,7 @@
 
         <ion-row>
             <ion-col>
-              <button ion-button  color="primary" (click)="logarProfessor(usuario)" >
+              <button ion-button round full color="primary" (click)="logarProfessor(usuario)" >
                 Login Professor
               </button>
             </ion-col>
@@ -37,7 +37,7 @@
 
         <ion-row>
             <ion-col>
-              <button ion-button  color="primary" (click)="logarAluno(usuario)">
+              <button ion-button round full color="primary" (click)="logarAluno(usuario)">
                 Login Aluno
               </button>
             </ion-col>

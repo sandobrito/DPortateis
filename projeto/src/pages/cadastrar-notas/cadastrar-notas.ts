@@ -1,5 +1,9 @@
+
+import { DisciplinaProvider } from './../../providers/disciplina/disciplina';
+import { Disciplina } from './../../models/disciplina';
+import { FirebaseListObservable } from 'angularfire2/database';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
 
 /**
  * Generated class for the CadastrarNotasPage page.
@@ -15,11 +19,25 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class CadastrarNotasPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  items: FirebaseListObservable<any[]>;
+  
+  disciplina = {} as Disciplina;
+  constructor(public navCtrl: NavController,
+              private disciplinaProvider: DisciplinaProvider) {
+              this.items= this.disciplinaProvider.getAll();
+              
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CadastrarNotasPage');
   }
+
+  salvar(disciplina){
+    if(this.disciplina.nome){
+      return this.items.update(this.disciplina.nome,{disciplina:this.disciplina})
+    }
+    
+  }
+  
 
 }

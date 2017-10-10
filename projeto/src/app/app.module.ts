@@ -1,6 +1,7 @@
+
+import { DisciplinaProvider } from './../providers/disciplina/disciplina';
 import { CadastrarNotasPage } from './../pages/cadastrar-notas/cadastrar-notas';
 
-import { CadastroQuestoesPage } from './../pages/cadastro-questoes/cadastro-questoes';
 
 import { CriarProvaPage } from './../pages/criar-prova/criar-prova';
 import { RegistroProvider } from './../providers/registro/registro';
@@ -20,7 +21,6 @@ import { AngularFireDatabaseModule } from "angularfire2/database";
 
 
 import { MyApp } from './app.component';
-import { DisciplinaProvider } from '../providers/disciplina/disciplina';
 
 
 const firebaseConfig = {
@@ -40,10 +40,8 @@ const firebaseConfig = {
     ProfessorLogadoPage,
     AlunoLogadoPage,
     CriarProvaPage,
-    CadastroQuestoesPage,
-    CadastrarNotasPage
-    
-
+    CadastrarNotasPage,
+   
   ],
   imports: [
     BrowserModule,
@@ -62,8 +60,9 @@ const firebaseConfig = {
     ProfessorLogadoPage,
     AlunoLogadoPage,
     CriarProvaPage,
-    CadastroQuestoesPage,
-    CadastrarNotasPage
+    CadastrarNotasPage,
+    
+    
     
   ],
   providers: [
