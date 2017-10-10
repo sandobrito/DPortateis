@@ -1,7 +1,7 @@
-import { HomePage } from './../home/home';
-
-import { CadastroPage } from './../cadastro/cadastro';
-import { User } from './../../models/user';
+import { AlunoLogadoPage } from './../aluno-logado/aluno-logado';
+import { ProfessorLogadoPage } from './../professor-logado/professor-logado';
+import { RegistrarPage } from './../registrar/registrar';
+import { Usuario } from './../../models/usuario';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AngularFireAuth } from "angularfire2/auth";
@@ -21,18 +21,20 @@ import { AngularFireAuth } from "angularfire2/auth";
 
 export class LoginPage {
 
-  user = {} as User;
-
-  constructor(private afAuth : AngularFireAuth,
+  usuario = {} as Usuario;
+  constructor(private afAuth: AngularFireAuth, 
     public navCtrl: NavController, public navParams: NavParams) {
+
   }
 
-
-  async logar(user: User) {
+  goRegistrar(){
+    this.navCtrl.push(RegistrarPage);
+  }
+  async logarProfessor(usuario: Usuario) {
     try{
-      const result = this.afAuth.auth.signInWithEmailAndPassword(user.email ,  user.password);
+      const result = this.afAuth.auth.signInWithEmailAndPassword(usuario.email ,  usuario.senha);
       if(result){
-        this.navCtrl.push(HomePage);
+        this.navCtrl.push(ProfessorLogadoPage);
       }
       
     }catch (e){
@@ -40,8 +42,16 @@ export class LoginPage {
     }
     
   }
-
-  cadastro(){
-    this.navCtrl.push(CadastroPage);
+  async logarAluno(usuario: Usuario) {
+    try{
+      const result = this.afAuth.auth.signInWithEmailAndPassword(usuario.email ,  usuario.senha);
+      if(result){
+        this.navCtrl.push(AlunoLogadoPage);
+      }
+      
+    }catch (e){
+      console.error(e);
+    }
+    
   }
 }

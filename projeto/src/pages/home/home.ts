@@ -1,11 +1,13 @@
-import { CadastroQuestoesPage } from './../cadastro-questoes/cadastro-questoes';
+
+
+
 
 import { ListaDisciplinaPage } from './../lista-disciplina/lista-disciplina';
-import { DisciplinaServiceProvider } from './../../providers/disciplina-service/disciplina-service';
+
 import { CadastroDisciplinaPage } from './../cadastro-disciplina/cadastro-disciplina';
 import { CadastroPage } from './../cadastro/cadastro';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, ToastController } from 'ionic-angular';
 import {AngularFireAuth} from "angularfire2/auth";
 
 /**
@@ -23,7 +25,7 @@ import {AngularFireAuth} from "angularfire2/auth";
 export class HomePage {
 
   constructor(private afAuth : AngularFireAuth, private toast : ToastController,
-    public navCtrl: NavController, public navParams: NavParams, private disciplinaService: DisciplinaServiceProvider) {
+    public navCtrl: NavController) {
   }
 
   ionViewWillLoad() {
@@ -45,9 +47,6 @@ export class HomePage {
   }
   goToListaDisciplinas(){
     this.navCtrl.push(ListaDisciplinaPage);
-  }
-  goToCadastroQuetoes(){
-    this.navCtrl.push(CadastroQuestoesPage);
   }
   
 
